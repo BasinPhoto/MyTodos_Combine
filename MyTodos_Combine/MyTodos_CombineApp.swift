@@ -12,6 +12,7 @@ struct MyTodos_CombineApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(DataStore())
         }
     }
 }
