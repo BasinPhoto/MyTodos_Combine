@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C24F29D5266D5996007C9707 /* ToDoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24F29D4266D5996007C9707 /* ToDoError.swift */; };
 		C2EC6DDA266BD5E700CCF4F0 /* MyTodos_CombineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EC6DD9266BD5E700CCF4F0 /* MyTodos_CombineApp.swift */; };
 		C2EC6DDC266BD5E700CCF4F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EC6DDB266BD5E700CCF4F0 /* ContentView.swift */; };
 		C2EC6DDE266BD5E900CCF4F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2EC6DDD266BD5E900CCF4F0 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C24F29D4266D5996007C9707 /* ToDoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoError.swift; sourceTree = "<group>"; };
 		C2EC6DD6266BD5E700CCF4F0 /* MyTodos_Combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTodos_Combine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EC6DD9266BD5E700CCF4F0 /* MyTodos_CombineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodos_CombineApp.swift; sourceTree = "<group>"; };
 		C2EC6DDB266BD5E700CCF4F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				C2EC6DE8266BD64000CCF4F0 /* Todo.swift */,
 				C2EC6DF2266BE3F000CCF4F0 /* ModalType.swift */,
+				C24F29D4266D5996007C9707 /* ToDoError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				C2EC6DEB266BD76500CCF4F0 /* DataStore.swift in Sources */,
 				C2EC6DE9266BD64000CCF4F0 /* Todo.swift in Sources */,
 				C2EC6DDA266BD5E700CCF4F0 /* MyTodos_CombineApp.swift in Sources */,
+				C24F29D5266D5996007C9707 /* ToDoError.swift in Sources */,
 				C2EC6DF1266BDD3600CCF4F0 /* ToDoFormView.swift in Sources */,
 				C2EC6DED266BDB4400CCF4F0 /* ToDoFormViewModel.swift in Sources */,
 			);
