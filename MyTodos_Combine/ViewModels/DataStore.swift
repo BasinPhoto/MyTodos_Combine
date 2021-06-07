@@ -6,31 +6,43 @@
 //
 
 import Foundation
+import Combine
 
 class DataStore: ObservableObject {
     @Published var toDos: [Todo] = []
     @Published var appError: ErrorType? = nil
     
+    var subscriptions = Set<AnyCancellable>()
+    var addToDo = PassthroughSubject<Todo, Never>()
+    var updateToDo = PassthroughSubject<Todo, Never>()
+    var deleteToDo = PassthroughSubject<IndexSet, Never>()
+    
     init() {
+        addSubscriptions()
         if FileManager().docExist(named: fileName) {
             loadToDos()
         }
     }
     
-    func addToDo(_ toDo: Todo) {
-        toDos.append(toDo)
-        saveToDos()
-    }
-    
-    func updateToDo(_ toDo: Todo) {
-        guard let index = toDos.firstIndex(where: {$0.id == toDo.id}) else {return}
-        toDos[index] = toDo
-        saveToDos()
-    }
-    
-    func deleteToDo(at index: IndexSet) {
-        toDos.remove(atOffsets: index)
-        saveToDos()
+    func addSubscriptions() {
+        addToDo.sink { [unowned self] todo in
+            toDos.append(todo)
+            saveToDos()
+        }
+        .store(in: &subscriptions)
+        
+        updateToDo.sink { [unowned self] todo in
+            guard let index = toDos.firstIndex(where: {$0.id == todo.id}) else {return}
+            toDos[index] = todo
+            saveToDos()
+        }
+        .store(in: &subscriptions)
+        
+        deleteToDo.sink { [unowned self] index in
+            toDos.remove(atOffsets: index)
+            saveToDos()
+        }
+        .store(in: &subscriptions)
     }
     
     func loadToDos() {
