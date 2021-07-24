@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(dataStore.toDos) { toDo in
+                ForEach(dataStore.toDos.value) { toDo in
                     Button {
                         modalType = .update(toDo)
                     } label: {
@@ -42,7 +42,7 @@ struct ContentView: View {
             }
         }
         .sheet(item: $modalType) { $0 }
-        .alert(item: $dataStore.appError) { appError in
+        .alert(item: $dataStore.appError.value) { appError in
             Alert(title: Text("Oh oh!"), message: Text(appError.error.localizedDescription))
         }
     }
